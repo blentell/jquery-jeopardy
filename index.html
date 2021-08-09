@@ -6,18 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Jeopardy</title>
 
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-			crossorigin="anonymous"
-		/>
 
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-			crossorigin="anonymous"
-		></script>
 
 		<link rel="stylesheet" href="styles.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,58 +26,29 @@
 		<h1 id="title">JEOPARDY!</h1>
 		<h5 id="scoreTitle">Current Score: </h5>
         <h5 id="score"></h5>
-		<!-- Vertically centered scrollable modal -->
-		<!-- <button
-			type="button"
-			class="btn btn-primary"
-			data-bs-toggle="modal"
-			data-bs-target="#staticBackdrop"
-		>
-			Launch demo modal
-		</button> -->
-		<div
-			class="modal fade"
-			id="staticBackdrop"
-			data-bs-backdrop="static"
-			data-bs-keyboard="false"
-			tabindex="-1"
-			aria-labelledby="staticBackdropLabel"
-			aria-hidden="true"
-		>
-			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-						<button
-							type="button"
-							class="btn-close"
-							data-bs-dismiss="modal"
-							aria-label="Close"
-						></button>
-					</div>
-					<div class="modal-body">
-</div>
-					<div class="modal-footer">
-						<button
-							type="button"
-							class="btn btn-secondary"
-							data-bs-dismiss="modal"
-						>
-							Close
-						</button>
-						<button type="button" class="btn btn-primary">Understood</button>
-					</div>
-				</div>
-			</div>
-		</div>
+
+		<div id="myModal" class="modal">
+        <button id="close-button">&times;</button>
+        <div id="modalContent"></div>
+        <form id="form">
+          <input id="a" name="answer" value="a" type="text"></input>
+            <label id="a" class="choice" for="a"></label>
+        </form>
+        <br>
+        <div id="check"><button id="checkAnswer">Check</button></div>
+        <br>
+        <div id="answerContent"></div>        
+        <audio id="think" src="jeopardy-themelq.mp3"></audio>
+      </div>
+	  
 		<div id="gameBoard1">
 			<div id="category1">
 				<div class="categories1">HISTORY</div>
-				<div class="answer c1q1">$100</div>
-				<div class="answer c1q2">$200</div>
-				<div class="answer c1q3">$300</div>
-				<div class="answer c1q4">$400</div>
-				<div class="answer c1q5">$500</div>
+				<div id="HISTORY" class="answer c1q1">$100</div>
+				<div id="HISTORY" class="answer c1q2">$200</div>
+				<div id="HISTORY" class="answer c1q3">$300</div>
+				<div id="HISTORY" class="answer c1q4">$400</div>
+				<div id="HISTORY" class="answer c1q5">$500</div>
 			</div>
 			<div id="category2">
 				<div class="categories2">EVERYBODY TALKS ABOUT IT...</div>
@@ -163,11 +123,11 @@
         </div>
         <div id="category10">
             <div class="categories5">MUSICAL TRAINS</div>
-            <div class="answer c10q1">$200</div>
-            <div class="answer c10q2">$400</div>
-            <div class="answer c10q3">$600</div>
-            <div class="answer c10q4">$800</div>
-            <div class="answer c10q5">$1000</div>
+            <div class="answer clq1">$200</div>
+            <div class="answer clq2">$400</div>
+            <div class="answer clq3">$600</div>
+            <div class="answer clq4">$800</div>
+            <div class="answer clq5">$1000</div>
         </div>
         <img class='trebek trebek2' src="http://lh4.ggpht.com/_fDf22Zj632U/TaWcXFJiCxI/AAAAAAAADoY/SW2wPFSe41c/Trebeck_thumb2.jpg?imgmax=800" alt="">
                     <div id="footer2">

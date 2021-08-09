@@ -1,5 +1,6 @@
 body {
 	background-color: black;
+	position: relative;
 }
 
 #main {
@@ -14,6 +15,7 @@ body {
 	color: #c69850;
 	font-size: 50px;
 	font-family: "Sigmar One", cursive;
+	margin: -15px;
 }
 
 #whatRound {
@@ -51,13 +53,17 @@ body {
 
 #scoreTitle,
 #score {
+	display: flex;	
+	justify-content: center;
 	text-align: center;
 	color: #c69850;
 	font-family: "Sigmar One", cursive;
+	margin: -3px;
 }
 
 #gameBoard1 {
 	display: flex;
+	z-index: 0;
 	flex-wrap: wrap;
 	width: 777px;
 	justify-content: center;
@@ -159,4 +165,19 @@ body {
 	color: #fcf488;
 	font-size: 40px;
 	font-family: "Sigmar One", cursive;
+}
+
+#myModal {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #0645E9;
+  border: solid 5px white;
+  width: 550px;
+  max-width: 60%;
+  height: 550px;
+  max-height: 60%;
+  visibility: hidden;
 }
