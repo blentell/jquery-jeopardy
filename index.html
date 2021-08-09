@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Jeopardy</title>
+
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+			crossorigin="anonymous"
+		/>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+			crossorigin="anonymous"
+		></script>
+
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Seymour+One&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<h1 id="title">JEOPARDY!</h1>
+		<h5 id="scoreTitle">Current Score: </h5>
+        <h5 id="score"></h5>
+		<!-- Vertically centered scrollable modal -->
+		<!-- <button
+			type="button"
+			class="btn btn-primary"
+			data-bs-toggle="modal"
+			data-bs-target="#staticBackdrop"
+		>
+			Launch demo modal
+		</button> -->
+		<div
+			class="modal fade"
+			id="staticBackdrop"
+			data-bs-backdrop="static"
+			data-bs-keyboard="false"
+			tabindex="-1"
+			aria-labelledby="staticBackdropLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+						>
+							Close
+						</button>
+						<button type="button" class="btn btn-primary">Understood</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="gameBoard1">
+			<div id="category1">
+				<div class="categories1">HISTORY</div>
+				<div class="answer c1q1">$100</div>
+				<div class="answer c1q2">$200</div>
+				<div class="answer c1q3">$300</div>
+				<div class="answer c1q4">$400</div>
+				<div class="answer c1q5">$500</div>
+			</div>
+			<div id="category2">
+				<div class="categories2">EVERYBODY TALKS ABOUT IT...</div>
+				<div class="answer c2q1">$100</div>
+				<div class="answer c2q2">$200</div>
+				<div class="answer c2q3">$300</div>
+				<div class="answer c2q4">$400</div>
+				<div class="answer c2q5">$500</div>
+			</div>
+			<div id="category3">
+				<div class="categories3">3-LETTER WORDS</div>
+				<div class="answer c3q1">$100</div>
+				<div class="answer c3q2">$200</div>
+				<div class="answer c3q3">$300</div>
+				<div class="answer c3q4">$400</div>
+				<div class="answer c3q5">$500</div>
+			</div>
+			<div id="category4">
+				<div class="categories4">ESPN's TOP 10 ALL-TIME ATHLETES</div>
+				<div class="answer c4q1">$100</div>
+				<div class="answer c4q2">$200</div>
+				<div class="answer c4q3">$300</div>
+				<div class="answer c4q4">$400</div>
+				<div class="answer c4q5">$500</div>
+			</div>
+			<div id="category5">
+				<div class="categories5">EPITAPHS & TRIBUTES</div>
+				<div class="answer c5q1">$100</div>
+				<div class="answer c5q2">$200</div>
+				<div class="answer c5q3">$300</div>
+				<div class="answer c5q4">$400</div>
+				<div class="answer c5q5">$500</div>
+			</div>
+            <img class='trebek trebek1' src="http://lh4.ggpht.com/_fDf22Zj632U/TaWcXFJiCxI/AAAAAAAADoY/SW2wPFSe41c/Trebeck_thumb2.jpg?imgmax=800" alt="">
+            <div id="footer">
+            <h1 id="whatRound">Jeopardy round!</h1>
+            </div>
+		</div>
+        <!-- Double Jeopardy Round -->
+        <div id="gameBoard2">
+        <div id="category6">
+            <div class="categories1">DR. SEUSS AT THE MULTIPLEX</div>
+            <div class="answer c6q1">$200</div>
+            <div class="answer c6q2">$400</div>
+            <div class="answer c6q3">$600</div>
+            <div class="answer c6q4">$800</div>
+            <div class="answer c6q5">$1000</div>
+        </div>
+        <div id="category7">
+            <div class="categories2">PRESIDENTIAL STATES OF BIRTH</div>
+            <div class="answer c7q1">$200</div>
+            <div class="answer c7q2">$400</div>
+            <div class="answer c7q3">$600</div>
+            <div class="answer c7q4">$800</div>
+            <div class="answer c7q5">$1000</div>
+        </div>
+        <div id="category8">
+            <div class="categories3">AIRLINE TRAVEL</div>
+            <div class="answer c8q1">$200</div>
+            <div class="answer c8q2">$400</div>
+            <div class="answer c8q3">$600</div>
+            <div class="answer c8q4">$800</div>
+            <div class="answer c8q5">$1000</div>
+        </div>
+        <div id="category9">
+            <div class="categories4">THAT OLD-TIME RELIGION</div>
+            <div class="answer c9q1">$200</div>
+            <div class="answer c9q2">$400</div>
+            <div class="answer c9q3">$600</div>
+            <div class="answer c9q4">$800</div>
+            <div class="answer c9q5">$1000</div>
+        </div>
+        <div id="category10">
+            <div class="categories5">MUSICAL TRAINS</div>
+            <div class="answer c10q1">$200</div>
+            <div class="answer c10q2">$400</div>
+            <div class="answer c10q3">$600</div>
+            <div class="answer c10q4">$800</div>
+            <div class="answer c10q5">$1000</div>
+        </div>
+        <img class='trebek trebek2' src="http://lh4.ggpht.com/_fDf22Zj632U/TaWcXFJiCxI/AAAAAAAADoY/SW2wPFSe41c/Trebeck_thumb2.jpg?imgmax=800" alt="">
+                    <div id="footer2">
+            <h1 id="whatRound">Double Jeopardy round!</h1>
+            </div>
+        </div>
+	</body>
+	<script src="jeopardy.json"></script>
+	<script src="main.js"></script>
+</html>

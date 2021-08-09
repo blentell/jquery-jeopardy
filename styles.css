@@ -1,0 +1,162 @@
+body {
+	background-color: black;
+}
+
+#main {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+}
+
+#title {
+	text-align: center;
+	color: #c69850;
+	font-size: 50px;
+	font-family: "Sigmar One", cursive;
+}
+
+#whatRound {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	color: maroon;
+	font-size: 40px;
+	border: 1px solid gold;
+	font-family: "Sigmar One", cursive;
+}
+
+#whatRound:hover {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	color: red;
+	font-size: 40px;
+	border: 3px solid white;
+	font-family: "Sigmar One", cursive;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+#footer,
+#footer2 {
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+	align-content: center;
+	align-items: center;
+    width: 500px;    
+	margin-top: 10px;
+}
+
+#scoreTitle,
+#score {
+	text-align: center;
+	color: #c69850;
+	font-family: "Sigmar One", cursive;
+}
+
+#gameBoard1 {
+	display: flex;
+	flex-wrap: wrap;
+	width: 777px;
+	justify-content: center;
+	margin-left: 57px;
+}
+
+#gameBoard2 {
+	display: none;
+	flex-wrap: wrap;
+	width: 777px;
+	justify-content: center;
+	margin-left: 57px;
+}
+
+.categories6,
+.categories7,
+.categories8,
+.categories9,
+.categories10 {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	background-color: #0c34ad;
+	align-items: center;
+	width: 150px;
+	height: 70px;
+	border: 2px solid gold;
+	color: black;
+	text-shadow: 0px 0px 4px white;
+	font-size: 14px;
+	font-family: "Sigmar One", cursive;
+}
+
+.trebek {
+    height: 150px;
+    width: 150px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: -35px;
+}
+.answer:hover {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	background-color: #1942bd;
+	align-items: center;
+	width: 150px;
+	height: 70px;
+	border: 3px solid yellow;
+	color: #fcf488;
+	font-size: 40px;
+	font-family: "Sigmar One", cursive;
+}
+
+.categories1,
+.categories2,
+.categories3,
+.categories4,
+.categories5 {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	background-color: #0c34ad;
+	align-items: center;
+	text-align: center;
+	width: 150px;
+	height: 70px;
+	border: 2px solid gold;
+	color: black;
+	text-shadow: 0px 0px 4px white;
+	font-size: 14px;
+	font-family: "Sigmar One", cursive;
+}
+
+.answer {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	background-color: #0c34ad;
+	align-items: center;
+	width: 150px;
+	height: 70px;
+	border: 3px solid black;
+	color: #fcf153;
+	font-size: 40px;
+	font-family: "Sigmar One", cursive;
+}
+
+.answer:hover {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	background-color: #1942bd;
+	align-items: center;
+	width: 150px;
+	height: 70px;
+	border: 3px solid yellow;
+
+	color: #fcf488;
+	font-size: 40px;
+	font-family: "Sigmar One", cursive;
+}
