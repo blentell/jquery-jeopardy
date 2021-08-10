@@ -5,9 +5,6 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Jeopardy</title>
-
-
-
 		<link rel="stylesheet" href="styles.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,6 +20,13 @@
 		/>
 	</head>
 	<body>
+		<div id="splash">
+			<h1 id='splashTitle'>Click the image to play!</h1>
+			<div id="jeopardyLogo">
+				<img src="https://images.thebrag.com/tb/uploads/2019/03/jeopardy-768x435.jpg" alt="" id="logo">
+			</div>
+		</div>
+		<div id="mainGame">
 		<h1 id="title">JEOPARDY!</h1>
 		<h5 id="scoreTitle">Current Score: </h5>
         <h4 id="score"></h4>
@@ -38,6 +42,8 @@
         <div id="check"><button id="checkAnswer">Check</button></div>
         <br>
         <div id="answerContent"></div>        
+		<audio src="jeopardy-intro-1.mp3" id="mainIntro"></audio>
+		<audio src="jeopardy-board-fill-sound-2016-present-cleaner-version.mp3" id="intro"></audio>
         <audio id="think" src="jeopardy-themelq.mp3"></audio>
 		<audio src="you-are-right.mp4" id="right"></audio>
 		<audio src="boo-hiss.mp4" id="wrong"></audio>
@@ -136,6 +142,7 @@
             <h1 id="whatRound">Double Jeopardy round!</h1>
             </div>
         </div>
+		</div>
 	</body>
 	<script src="jeopardy.json"></script>
 	<script src="main.js"></script>

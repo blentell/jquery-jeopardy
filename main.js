@@ -15,6 +15,27 @@ const close = document.querySelector("#close-button");
 const scored = document.querySelector("#score");
 const right = document.querySelector("#right");
 const wrong = document.querySelector("#wrong");
+const intro = document.querySelector("#intro");
+const logo = document.querySelector('#logo');
+const splash = document.querySelector('#splash');
+const main = document.querySelector('#mainGame');
+const mainIntro = document.querySelector('#mainIntro');
+
+logo.addEventListener('click', function () {
+	mainIntro.play();
+	mainIntro.volume = 0.2;
+	window.setTimeout(function () {
+		intro.play();
+	}, 24000);
+	splash.style.opacity = "0%";
+	main.style.opacity = '100%';
+	window.setTimeout(function () {
+		splash.style.visibility = 'hidden';
+		splash.style.display = 'none';
+		main.style.visibility = 'visible';
+	}, 27000);
+})
+
 
 let points;
 let response;
@@ -44,7 +65,6 @@ trebek2.addEventListener("click", function () {
 	confirm(text);
 });
 
-let categories = ["HISTORY"];
 // Create the function to grab the question
 async function getAnswer(columnIndex) {
 	const rawData = await fetch("jeopardy.json");
@@ -109,6 +129,7 @@ close.addEventListener("click", function (event) {
 		scored.innerText = `$ ${lessScore}`;
 	}
 	trebek1.classList.remove("rightAnswer");
+	trebek2.classList.remove("rightAnswer");
 	closeModal(event);
 });
 
@@ -125,11 +146,15 @@ function checkAnswer(event) {
 	const lessScore = score - points;
 	checkAnswerEvent = true;
 	console.log("I did stuff");
-	if ((input.value = response)) {
+	if (
+		input.value.toLowerCase() === response.toLowerCase() ||
+		input.value.toUpperCase() === response.toUpperCase()
+	) {
 		answerContent.innerText = `CORRECT! You won $${points}`;
 		score = Number(newScore);
 		scored.innerText = `$ ${newScore}`;
 		trebek1.classList.add("rightAnswer");
+		trebek2.classList.add("rightAnswer");
 		right.play();
 	} else {
 		answerContent.innerHTML = `Sorry, the correct answer is ${response}. You lost $${points}`;
@@ -164,5 +189,5 @@ function closeModal() {
 	answerContent.style.visibility = "hidden";
 	audio.pause();
 	audio.currentTime = 0;
-	document.getElementById(id).value = "";
+	input.value = "";
 }

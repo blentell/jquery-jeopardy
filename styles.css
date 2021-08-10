@@ -3,6 +3,37 @@ body {
 	position: relative;
 }
 
+#splash {
+	opacity: 100%;
+	justify-content: center;
+	align-content: center;
+	transition: all 29s ease-out;
+}
+
+#splashTitle {
+	color: white;
+	text-align: center;
+	margin-top: 100px;
+	margin-bottom: -130px;
+}
+
+#logo {
+	margin-top: 150px;
+	height: 50vh;
+	width: 70vw;
+}
+
+#jeopardyLogo {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+#mainGame {
+	opacity: 0%;
+	visibility: hidden;	
+}
+
 #main {
 	display: flex;
 	justify-content: center;
