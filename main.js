@@ -13,11 +13,15 @@ const input = document.querySelector("#a");
 const check = document.querySelector("#checkAnswer");
 const close = document.querySelector("#close-button");
 const scored = document.querySelector("#score");
+const right = document.querySelector("#right");
+const wrong = document.querySelector("#wrong");
 
+let points;
+let response;
 let score = 0;
+scored.innerText = `$ ${0}`;
+let checkAnswerEvent = false;
 
-
-scored.innerText = 0;
 nextRound.addEventListener("click", function () {
 	gameBoard1.style.display = "none";
 	gameBoard2.style.display = "flex";
@@ -48,14 +52,11 @@ async function getAnswer(columnIndex) {
 	let count = 0;
 	const newArray = [];
 	for (const question of data) {
-		if (question.category === "HISTORY" && columnIndex === "1") {
+		if (question.category === 2 && columnIndex === "1") {
 			count++;
 			newArray.push(question);
 		}
-		if (
-			question.category === "EVERYBODY TALKS ABOUT IT..." &&
-			columnIndex === "2"
-		) {
+		if (question.category === 25 && columnIndex === "2") {
 			count++;
 			newArray.push(question);
 		}
@@ -63,28 +64,19 @@ async function getAnswer(columnIndex) {
 			count++;
 			newArray.push(question);
 		}
-		if (
-			question.category === "ESPN's TOP 10 ALL-TIME ATHLETES" &&
-			columnIndex === "4"
-		) {
+		if (question.category === 1791 && columnIndex === "4") {
 			count++;
 			newArray.push(question);
 		}
-		if (question.category === "EPITAPHS & TRIBUTES" && columnIndex === "5") {
+		if (question.category === 1812 && columnIndex === "5") {
 			count++;
 			newArray.push(question);
 		}
-		if (
-			question.category === "DR. SEUSS AT THE MULTIPLEX" &&
-			columnIndex === "6"
-		) {
+		if (question.category === "IN THE BOOKSTORE" && columnIndex === "6") {
 			count++;
 			newArray.push(question);
 		}
-		if (
-			question.category === "PRESIDENTIAL STATES OF BIRTH" &&
-			columnIndex === "7"
-		) {
+		if (question.category === "ANIMAL GROUPS" && columnIndex === "7") {
 			count++;
 			newArray.push(question);
 		}
@@ -104,37 +96,54 @@ async function getAnswer(columnIndex) {
 	let randomQuestion = Math.ceil(Math.random() * count);
 	console.log("Question: ", newArray[randomQuestion].question);
 	console.log("Answer: ", newArray[randomQuestion].answer);
-	const question = newArray[randomQuestion].question;
-	const response = newArray[randomQuestion].answer;
+	question = newArray[randomQuestion].question;
+	response = newArray[randomQuestion].answer;
 	modalContent.innerHTML = question;
-	function checkAnswer(event) {
-		event.preventDefault();
-		answerContent.style.visibility = "visible";
-let newScore = score + 100;
-let lessScore = score - 100;
-		if (input.value === response) {
-			answerContent.innerText = "CORRECT! You won $ " + 100;
-			// score = newScore;
-			scored.innerText = newScore;
-		} else {
-			answerContent.innerHTML = `Sorry, the correct answer is ${response}. You lost $100`;
-			// score = lessScore;
-			scored.innerText = lessScore;
-		}
-	}
-	check.addEventListener("click", function (event) {
-		checkAnswer(event);
-	});
+}
 
-	close.addEventListener("click", function (event) {
-		closeModal(event);
-	});
+close.addEventListener("click", function (event) {
+	// Need an if statement to catch if the check button was clicked
+	if (checkAnswerEvent === false) {
+		const lessScore = score - points;
+		score = lessScore;
+		scored.innerText = `$ ${lessScore}`;
+	}
+	trebek1.classList.remove("rightAnswer");
+	closeModal(event);
+});
+
+check.addEventListener("click", function (event) {
+	checkAnswer(event);
+	audio.pause();
+	audio.currentTime = 0;
+});
+
+function checkAnswer(event) {
+	event.preventDefault();
+	answerContent.style.visibility = "visible";
+	const newScore = score + points;
+	const lessScore = score - points;
+	checkAnswerEvent = true;
+	console.log("I did stuff");
+	if ((input.value = response)) {
+		answerContent.innerText = `CORRECT! You won $${points}`;
+		score = Number(newScore);
+		scored.innerText = `$ ${newScore}`;
+		trebek1.classList.add("rightAnswer");
+		right.play();
+	} else {
+		answerContent.innerHTML = `Sorry, the correct answer is ${response}. You lost $${points}`;
+		score = lessScore;
+		scored.innerText = `$ ${lessScore}`;
+		wrong.play();
+	}
 }
 
 // Add click functionality to the board
 for (const answer of answers) {
 	answer.addEventListener("click", function (event) {
 		let columnIndex = answer.classList[1][1];
+		points = Number(answer.innerHTML);
 		console.log(columnIndex);
 		getAnswer(columnIndex);
 		openModal(event);
@@ -145,7 +154,9 @@ for (const answer of answers) {
 function openModal(event) {
 	event.currentTarget.style.visibility = "hidden";
 	modal.style.visibility = "visible";
+	audio.volume = 0.2;
 	audio.play();
+	checkAnswerEvent = false;
 }
 
 function closeModal() {
@@ -153,7 +164,5 @@ function closeModal() {
 	answerContent.style.visibility = "hidden";
 	audio.pause();
 	audio.currentTime = 0;
-	["a"].forEach(function (id) {
-		document.getElementById(id).value = "";
-	});
+	document.getElementById(id).value = "";
 }

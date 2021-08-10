@@ -25,7 +25,7 @@
 	<body>
 		<h1 id="title">JEOPARDY!</h1>
 		<h5 id="scoreTitle">Current Score: </h5>
-        <h5 id="score"></h5>
+        <h4 id="score"></h4>
 
 		<div id="myModal" class="modal">
         <button id="close-button">&times;</button>
@@ -39,48 +39,50 @@
         <br>
         <div id="answerContent"></div>        
         <audio id="think" src="jeopardy-themelq.mp3"></audio>
+		<audio src="you-are-right.mp4" id="right"></audio>
+		<audio src="boo-hiss.mp4" id="wrong"></audio>
       </div>
 	  
 		<div id="gameBoard1">
 			<div id="category1">
-				<div class="categories1">HISTORY</div>
-				<div id="HISTORY" class="answer c1q1">$100</div>
-				<div id="HISTORY" class="answer c1q2">$200</div>
-				<div id="HISTORY" class="answer c1q3">$300</div>
-				<div id="HISTORY" class="answer c1q4">$400</div>
-				<div id="HISTORY" class="answer c1q5">$500</div>
+				<div class="categories1">2</div>
+				<div id="HISTORY" class="answer c1q1">100</div>
+				<div id="HISTORY" class="answer c1q2">200</div>
+				<div id="HISTORY" class="answer c1q3">300</div>
+				<div id="HISTORY" class="answer c1q4">400</div>
+				<div id="HISTORY" class="answer c1q5">500</div>
 			</div>
 			<div id="category2">
-				<div class="categories2">EVERYBODY TALKS ABOUT IT...</div>
-				<div class="answer c2q1">$100</div>
-				<div class="answer c2q2">$200</div>
-				<div class="answer c2q3">$300</div>
-				<div class="answer c2q4">$400</div>
-				<div class="answer c2q5">$500</div>
+				<div class="categories2">25</div>
+				<div class="answer c2q1">100</div>
+				<div class="answer c2q2">200</div>
+				<div class="answer c2q3">300</div>
+				<div class="answer c2q4">400</div>
+				<div class="answer c2q5">500</div>
 			</div>
 			<div id="category3">
 				<div class="categories3">3-LETTER WORDS</div>
-				<div class="answer c3q1">$100</div>
-				<div class="answer c3q2">$200</div>
-				<div class="answer c3q3">$300</div>
-				<div class="answer c3q4">$400</div>
-				<div class="answer c3q5">$500</div>
+				<div class="answer c3q1">100</div>
+				<div class="answer c3q2">200</div>
+				<div class="answer c3q3">300</div>
+				<div class="answer c3q4">400</div>
+				<div class="answer c3q5">500</div>
 			</div>
 			<div id="category4">
-				<div class="categories4">ESPN's TOP 10 ALL-TIME ATHLETES</div>
-				<div class="answer c4q1">$100</div>
-				<div class="answer c4q2">$200</div>
-				<div class="answer c4q3">$300</div>
-				<div class="answer c4q4">$400</div>
-				<div class="answer c4q5">$500</div>
+				<div class="categories4">1791</div>
+				<div class="answer c4q1">100</div>
+				<div class="answer c4q2">200</div>
+				<div class="answer c4q3">300</div>
+				<div class="answer c4q4">400</div>
+				<div class="answer c4q5">500</div>
 			</div>
 			<div id="category5">
-				<div class="categories5">EPITAPHS & TRIBUTES</div>
-				<div class="answer c5q1">$100</div>
-				<div class="answer c5q2">$200</div>
-				<div class="answer c5q3">$300</div>
-				<div class="answer c5q4">$400</div>
-				<div class="answer c5q5">$500</div>
+				<div class="categories5">1812</div>
+				<div class="answer c5q1">100</div>
+				<div class="answer c5q2">200</div>
+				<div class="answer c5q3">300</div>
+				<div class="answer c5q4">400</div>
+				<div class="answer c5q5">500</div>
 			</div>
             <img class='trebek trebek1' src="http://lh4.ggpht.com/_fDf22Zj632U/TaWcXFJiCxI/AAAAAAAADoY/SW2wPFSe41c/Trebeck_thumb2.jpg?imgmax=800" alt="">
             <div id="footer">
@@ -90,44 +92,44 @@
         <!-- Double Jeopardy Round -->
         <div id="gameBoard2">
         <div id="category6">
-            <div class="categories1">DR. SEUSS AT THE MULTIPLEX</div>
-            <div class="answer c6q1">$200</div>
-            <div class="answer c6q2">$400</div>
-            <div class="answer c6q3">$600</div>
-            <div class="answer c6q4">$800</div>
-            <div class="answer c6q5">$1000</div>
+            <div class="categories1">IN THE BOOKSTORE</div>
+            <div class="answer c6q1">200</div>
+            <div class="answer c6q2">400</div>
+            <div class="answer c6q3">600</div>
+            <div class="answer c6q4">800</div>
+            <div class="answer c6q5">1000</div>
         </div>
         <div id="category7">
-            <div class="categories2">PRESIDENTIAL STATES OF BIRTH</div>
-            <div class="answer c7q1">$200</div>
-            <div class="answer c7q2">$400</div>
-            <div class="answer c7q3">$600</div>
-            <div class="answer c7q4">$800</div>
-            <div class="answer c7q5">$1000</div>
+            <div class="categories2">ANIMAL GROUPS</div>
+            <div class="answer c7q1">200</div>
+            <div class="answer c7q2">400</div>
+            <div class="answer c7q3">600</div>
+            <div class="answer c7q4">800</div>
+            <div class="answer c7q5">1000</div>
         </div>
         <div id="category8">
             <div class="categories3">AIRLINE TRAVEL</div>
-            <div class="answer c8q1">$200</div>
-            <div class="answer c8q2">$400</div>
-            <div class="answer c8q3">$600</div>
-            <div class="answer c8q4">$800</div>
-            <div class="answer c8q5">$1000</div>
+            <div class="answer c8q1">200</div>
+            <div class="answer c8q2">400</div>
+            <div class="answer c8q3">600</div>
+            <div class="answer c8q4">800</div>
+            <div class="answer c8q5">1000</div>
         </div>
         <div id="category9">
             <div class="categories4">THAT OLD-TIME RELIGION</div>
-            <div class="answer c9q1">$200</div>
-            <div class="answer c9q2">$400</div>
-            <div class="answer c9q3">$600</div>
-            <div class="answer c9q4">$800</div>
-            <div class="answer c9q5">$1000</div>
+            <div class="answer c9q1">200</div>
+            <div class="answer c9q2">400</div>
+            <div class="answer c9q3">600</div>
+            <div class="answer c9q4">800</div>
+            <div class="answer c9q5">1000</div>
         </div>
         <div id="category10">
             <div class="categories5">MUSICAL TRAINS</div>
-            <div class="answer clq1">$200</div>
-            <div class="answer clq2">$400</div>
-            <div class="answer clq3">$600</div>
-            <div class="answer clq4">$800</div>
-            <div class="answer clq5">$1000</div>
+            <div class="answer clq1">200</div>
+            <div class="answer clq2">400</div>
+            <div class="answer clq3">600</div>
+            <div class="answer clq4">800</div>
+            <div class="answer clq5">1000</div>
         </div>
         <img class='trebek trebek2' src="http://lh4.ggpht.com/_fDf22Zj632U/TaWcXFJiCxI/AAAAAAAADoY/SW2wPFSe41c/Trebeck_thumb2.jpg?imgmax=800" alt="">
                     <div id="footer2">
