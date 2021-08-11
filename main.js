@@ -1,5 +1,5 @@
-const nextRound = document.querySelector("#footer");
-const prevRound = document.querySelector("#footer2");
+const nextRound = document.querySelector(".whatRound");
+const prevRound = document.querySelector(".whatRound2");
 const gameBoard1 = document.querySelector("#gameBoard1");
 const gameBoard2 = document.querySelector("#gameBoard2");
 const answers = document.querySelectorAll(".answer");
@@ -16,32 +16,59 @@ const scored = document.querySelector("#score");
 const right = document.querySelector("#right");
 const wrong = document.querySelector("#wrong");
 const intro = document.querySelector("#intro");
-const logo = document.querySelector('#logo');
-const splash = document.querySelector('#splash');
-const main = document.querySelector('#mainGame');
-const mainIntro = document.querySelector('#mainIntro');
+const logo = document.querySelector("#logo");
+const splash = document.querySelector("#splash");
+const main = document.querySelector("#mainGame");
+const mainIntro = document.querySelector("#mainIntro");
+const reset = document.querySelector("#reset");
+const reset2 = document.querySelector("#reset2");
 
-logo.addEventListener('click', function () {
-	mainIntro.play();
-	mainIntro.volume = 0.2;
-	window.setTimeout(function () {
-		intro.play();
-	}, 24000);
+// To Do: Add timer to answer that closes the modal when time is up
+// To Do: Add reset button -- Done
+// To Do: Add local storage -- Done for score, not done for clicked state
+
+logo.addEventListener("click", function () {
+	// mainIntro.play();
+	// mainIntro.volume = 0.2;
+	// window.setTimeout(function () {
+	// 	intro.play();
+	// }, 24000);
 	splash.style.opacity = "0%";
-	main.style.opacity = '100%';
-	window.setTimeout(function () {
-		splash.style.visibility = 'hidden';
-		splash.style.display = 'none';
-		main.style.visibility = 'visible';
-	}, 27000);
-})
+	main.style.opacity = "100%";
+	// window.setTimeout(function () {
+		splash.style.visibility = "hidden";
+		splash.style.display = "none";
+		main.style.visibility = "visible";
+	// }, 27000);
+});
 
+let initialValue = localStorage.getItem("score");
+if (initialValue === null) {
+	initialValue = 0;
+}
 
 let points;
 let response;
-let score = 0;
-scored.innerText = `$ ${0}`;
+scored.innerText = initialValue;
 let checkAnswerEvent = false;
+
+reset.addEventListener("click", function (event) {
+	localStorage.clear();
+	initialValue = 0;
+	scored.innerText = initialValue;
+	for (const answer of answers) {
+		answer.style.visibility = "visible";
+	}
+});
+
+reset2.addEventListener("click", function () {
+	localStorage.clear();
+	initialValue = 0;
+	scored.innerText = initialValue;
+	for (const answer of answers) {
+		answer.style.visibility = "visible";
+	}
+});
 
 nextRound.addEventListener("click", function () {
 	gameBoard1.style.display = "none";
@@ -113,9 +140,12 @@ async function getAnswer(columnIndex) {
 			newArray.push(question);
 		}
 	}
-	let randomQuestion = Math.ceil(Math.random() * count);
+	let randomQuestion = Math.floor(Math.random() * count);
+	
+	console.log(randomQuestion);
 	console.log("Question: ", newArray[randomQuestion].question);
 	console.log("Answer: ", newArray[randomQuestion].answer);
+
 	question = newArray[randomQuestion].question;
 	response = newArray[randomQuestion].answer;
 	modalContent.innerHTML = question;
@@ -124,9 +154,10 @@ async function getAnswer(columnIndex) {
 close.addEventListener("click", function (event) {
 	// Need an if statement to catch if the check button was clicked
 	if (checkAnswerEvent === false) {
-		const lessScore = score - points;
-		score = lessScore;
-		scored.innerText = `$ ${lessScore}`;
+		const lessScore = Number(scored.innerText) - Number(points);
+		scored.innerText = lessScore;
+		scored.innerText = `${lessScore}`;
+		localStorage.setItem("score", scored.innerText);
 	}
 	trebek1.classList.remove("rightAnswer");
 	trebek2.classList.remove("rightAnswer");
@@ -142,40 +173,48 @@ check.addEventListener("click", function (event) {
 function checkAnswer(event) {
 	event.preventDefault();
 	answerContent.style.visibility = "visible";
-	const newScore = score + points;
-	const lessScore = score - points;
+	const newScore = Number(scored.innerText) + points;
+	const lessScore = Number(scored.innerText) - points;
 	checkAnswerEvent = true;
-	console.log("I did stuff");
+	
 	if (
+		// Make sure people dont get penalized for not having a capital in the right place
 		input.value.toLowerCase() === response.toLowerCase() ||
 		input.value.toUpperCase() === response.toUpperCase()
 	) {
+		// Add points for getting the question right
 		answerContent.innerText = `CORRECT! You won $${points}`;
-		score = Number(newScore);
-		scored.innerText = `$ ${newScore}`;
+		score = newScore;
+		scored.innerText = newScore;
+		localStorage.setItem("score", scored.innerText);
 		trebek1.classList.add("rightAnswer");
 		trebek2.classList.add("rightAnswer");
 		right.play();
 	} else {
+		// Take away points for getting the question wrong
 		answerContent.innerHTML = `Sorry, the correct answer is ${response}. You lost $${points}`;
 		score = lessScore;
-		scored.innerText = `$ ${lessScore}`;
+		scored.innerText = lessScore;
+		localStorage.setItem("score", scored.innerText);
 		wrong.play();
 	}
 }
 
 // Add click functionality to the board
 for (const answer of answers) {
+	// Define a variable to determine if the answer has been checked or not
+	let checked = false;
 	answer.addEventListener("click", function (event) {
 		let columnIndex = answer.classList[1][1];
-		points = Number(answer.innerHTML);
-		console.log(columnIndex);
+	// Set answer checked to true, so scoring does not happen twice
+		checked = true;
+		points = Number(answer.innerHTML);		
 		getAnswer(columnIndex);
 		openModal(event);
 	});
 }
 
-// Add a modal function
+// Add a modal open function
 function openModal(event) {
 	event.currentTarget.style.visibility = "hidden";
 	modal.style.visibility = "visible";
@@ -184,6 +223,7 @@ function openModal(event) {
 	checkAnswerEvent = false;
 }
 
+// Add a modal close function
 function closeModal() {
 	modal.style.visibility = "hidden";
 	answerContent.style.visibility = "hidden";

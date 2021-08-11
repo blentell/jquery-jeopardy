@@ -29,8 +29,10 @@
 		<div id="mainGame">
 		<h1 id="title">JEOPARDY!</h1>
 		<h5 id="scoreTitle">Current Score: </h5>
-        <h4 id="score"></h4>
-
+        <div id='scoreData'>
+		<h4 id="dollar">$ </h4>
+		<h4 id="score"></h4>
+		</div>
 		<div id="myModal" class="modal">
         <button id="close-button">&times;</button>
         <div id="modalContent"></div>
@@ -92,7 +94,8 @@
 			</div>
             <img class='trebek trebek1' src="http://lh4.ggpht.com/_fDf22Zj632U/TaWcXFJiCxI/AAAAAAAADoY/SW2wPFSe41c/Trebeck_thumb2.jpg?imgmax=800" alt="">
             <div id="footer">
-            <h1 id="whatRound">Jeopardy round!</h1>
+            <h1 class="whatRound">Jeopardy round!</h1>
+			<button id='reset'>Reset</button>
             </div>
 		</div>
         <!-- Double Jeopardy Round -->
@@ -139,7 +142,8 @@
         </div>
         <img class='trebek trebek2' src="http://lh4.ggpht.com/_fDf22Zj632U/TaWcXFJiCxI/AAAAAAAADoY/SW2wPFSe41c/Trebeck_thumb2.jpg?imgmax=800" alt="">
                     <div id="footer2">
-            <h1 id="whatRound">Double Jeopardy round!</h1>
+            <h1 class="whatRound2">Double Jeopardy round!</h1>
+			<button id='reset2'>Reset</button>
             </div>
         </div>
 		</div>
