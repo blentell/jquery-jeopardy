@@ -28,18 +28,18 @@ const reset2 = document.querySelector("#reset2");
 // To Do: Add local storage -- Done for score, not done for clicked state
 
 logo.addEventListener("click", function () {
-	// mainIntro.play();
-	// mainIntro.volume = 0.2;
-	// window.setTimeout(function () {
-	// 	intro.play();
-	// }, 24000);
+	mainIntro.play();
+	mainIntro.volume = 0.2;
+	window.setTimeout(function () {
+		intro.play();
+	}, 24000);
 	splash.style.opacity = "0%";
 	main.style.opacity = "100%";
-	// window.setTimeout(function () {
+	window.setTimeout(function () {
 		splash.style.visibility = "hidden";
 		splash.style.display = "none";
 		main.style.visibility = "visible";
-	// }, 27000);
+	}, 27000);
 });
 
 let initialValue = localStorage.getItem("score");
