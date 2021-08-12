@@ -32,6 +32,9 @@ body {
 #mainGame {
 	opacity: 0%;
 	visibility: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 #main {
@@ -119,17 +122,17 @@ body {
 	display: flex;
 	z-index: 0;
 	flex-wrap: wrap;
-	width: 777px;
+	width: 1200px;
 	justify-content: center;
-	margin-left: 57px;
+	margin-left: 250px;
 }
 
 #gameBoard2 {
 	display: none;
 	flex-wrap: wrap;
-	width: 777px;
+	width: 1200px;
 	justify-content: center;
-	margin-left: 57px;
+	margin-left: 250px;
 }
 
 .categories6,
@@ -142,8 +145,8 @@ body {
 	flex-direction: row;
 	background-color: #0c34ad;
 	align-items: center;
-	width: 150px;
-	height: 70px;
+	width: 220px;
+	height: 120px;
 	border: 2px solid gold;
 	color: black;
 	text-shadow: 0px 0px 4px white;
@@ -164,8 +167,8 @@ body {
 	flex-direction: row;
 	background-color: #1942bd;
 	align-items: center;
-	width: 150px;
-	height: 70px;
+	width: 220px;
+	height: 120px;
 	border: 3px solid yellow;
 	color: #fcf488;
 	font-size: 40px;
@@ -183,8 +186,8 @@ body {
 	background-color: #0c34ad;
 	align-items: center;
 	text-align: center;
-	width: 150px;
-	height: 70px;
+	width: 220px;
+	height: 120px;
 	border: 2px solid gold;
 	color: black;
 	text-shadow: 0px 0px 4px white;
@@ -198,8 +201,8 @@ body {
 	flex-direction: row;
 	background-color: #0c34ad;
 	align-items: center;
-	width: 150px;
-	height: 60px;
+	width: 220px;
+	height: 120px;
 	border: 3px solid black;
 	color: #fcf153;
 	font-size: 40px;
@@ -212,8 +215,8 @@ body {
 	flex-direction: row;
 	background-color: #1942bd;
 	align-items: center;
-	width: 150px;
-	height: 70px;
+	width: 220px;
+	height: 120px;
 	border: 3px solid yellow;
 	color: #fcf488;
 	font-size: 40px;
@@ -333,7 +336,7 @@ body {
 
 
 /* Adjust for smaller screens */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
 	#title {
 		text-align: center;
 		color: #c69850;
